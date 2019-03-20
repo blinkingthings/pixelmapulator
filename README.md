@@ -1,6 +1,6 @@
 # Pixel Mapulator
 
-A WYSIWYS in browser pixel map generator and more.
+A WYSIWYG in browser pixel map generator and more.
 
 ## Explanation
 
