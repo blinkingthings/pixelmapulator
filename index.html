@@ -42,58 +42,21 @@
 
 <body>
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Pixel Mapulator</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-<!-- -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+      <div class="col">
         <div class="row">
-          <div class="col-sm">
           <a class="navbar-brand" href="#">Pixel Mapulator</a>
-        </div>
 
 
-            <input class="user-input" id="project-name" name="project_name" type="text" placeholder="project name" value="Project Name" aria-label="project name">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control form-control-sm mr-sm-2 user-input" id="project-name" name="project_name" type="text" placeholder="project name" value="Project Name" aria-label="project name">
             <div class="input-group input-group-sm mr-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="screen-width-label">width</span>
               </div>
               <input type="text" class="form-control user-input" value="16" placeholder="width" name="screen_width" aria-label="width" aria-describedby="screen-width" id="screen-width">
             </div>
-
             <div class="input-group input-group-sm mr-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="screen-height-label">height</span>
@@ -117,7 +80,7 @@
 
 
           <button class="btn btn-sm btn-success my-2 my-sm-0" id="add-screen" onclick="projects[active_project].add_screen(user_inputs.screen_width,user_inputs.screen_height);">add LED screen</button>
-
+          </form>
         </div><!-- row -->
         <div class="row justify-content-center">
           <form class="form-inline my-2 my-lg-0">
@@ -136,7 +99,7 @@
 
 
       </div><!--row-->
-
+        </div>
 
 
     </nav>
