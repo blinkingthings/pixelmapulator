@@ -1,0 +1,79 @@
+{
+    "name": "pixelmapulator",
+    "description": "A WYSIWYG in browser pixel map generator and more.",
+    "version": "1.0.0",
+    "keywords": [
+        "html5",
+        "canvas",
+        "web",
+        "javascript"
+    ],
+    "homepage": "https://github.com/blinkingthings/pixelmapulator#readme",
+    "author": {
+        "name": "Mike Smith",
+        "email": "blinkingthings@gmail.com",
+        "url": "https://github.com/blinkingthings"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/blinkingthings/pixelmapulator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/blinkingthings/pixelmapulator/issues"
+    },
+    "license": "GPL-3.0-or-later",
+    "engines": {
+        "node": ">=6",
+        "npm": ">=3"
+    },
+    "files": [
+        "dist/**/*.*",
+        "src/assets/inc/**/*.*",
+        "src/assets/{js,scss}/*.{js,scss}",
+        "src/html/*.html",
+        "src/media/**/*.{svg,png,jpg,gif,mp4,ogg,mkv,webm}"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.3.1",
+        "@babel/register": "^7.0.0",
+        "autoprefixer": "^9.4.7",
+        "babelify": "^10.0.0",
+        "browser-sync": "^2.26.3",
+        "browserify": "^16.2.3",
+        "css-mqpacker": "^7.0.0",
+        "cssnano": "^4.1.8",
+        "del": "^3.0.0",
+        "eslint": "^5.12.1",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "faster.js": "^1.1.0",
+        "fs-extra": "^7.0.1",
+        "glob": "^7.1.3",
+        "gulp": "^4.0.0",
+        "gulp-eslint": "^5.0.0",
+        "gulp-header": "^2.0.7",
+        "gulp-imagemin": "^5.0.3",
+        "gulp-newer": "^1.4.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^8.0.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-replace": "^1.0.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-strip-comments": "^2.5.2",
+        "gulp-uglify": "^3.0.2",
+        "stylelint": "^9.10.1",
+        "stylelint-config-recommended": "^2.1.0",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "watchify": "^3.11.1"
+    },
+    "scripts": {
+        "setup": "gulp proj:init",
+        "reset": "gulp util:clean",
+        "build": "gulp render:build",
+        "dev": "gulp render:dev",
+        "prod": "gulp render:prod"
+    }
+}

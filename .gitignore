@@ -1,0 +1,62 @@
+# Automatically ignore files, filetypes and directories when pushing to repos.
+# https://git-scm.com/docs/gitignore
+
+# Always Ignore
+*~
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# Logs and Databases
+*.log
+*.sql
+
+# macOS / Windows Generated Files
+*.esproj
+*.sublime-project
+*.sublime-workspace
+*.un~
+._*
+.AppleDouble
+.cache
+.DS_Store
+.LSOverride
+.project
+.settings
+.Spotlight-V100
+.tmproj
+.Trashes
+Desktop.ini
+ehthumbs.db
+Icon?
+nbproject
+Thumbs.db
+
+# SASS Generated Files
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+*.map
+
+# NPM
+/node_modules/
+npm-debug.log
+
+# Compiled Files and Build Dirs
+build/**
+/README.html
+
+# IDEs & Editors
+.idea
+.vscode
+library/vendors/composer
