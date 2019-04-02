@@ -110,7 +110,9 @@ module.exports = {
     styleOutput: 'style',
 
     // Include CSS from Node Modules
-    styleIncludePaths: [],
+    styleIncludePaths: [
+        './node_modules/bootstrap/scss/',
+    ],
 
     // An array of plugins to include with PostCSS.
     // Must be in `require('plugin-name')` format.

@@ -482,7 +482,7 @@ gulp.task('watch', () => {
  * -----------------------------------------------------------------------------
  */
 
-gulp.task('render:build', gulp.series('proj:check', 'util:clean', gulp.parallel('js:build', 'css:build', 'inc:build', 'views:build', 'img:build')));
+gulp.task('render:build', gulp.series('proj:check', 'util:clean', gulp.parallel('js:build', 'css:build', /* 'inc:build', */ 'views:build', 'img:build')));
 
 gulp.task('render:dev', gulp.series('proj:check', 'util:clean', gulp.parallel('js:dev', 'css:dev', 'inc:dev', 'views:dev', 'img:dev', runBrowserSync, 'watch')));
 

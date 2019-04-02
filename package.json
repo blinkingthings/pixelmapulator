@@ -75,5 +75,8 @@
         "build": "gulp render:build",
         "dev": "gulp render:dev",
         "prod": "gulp render:prod"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1"
     }
 }
