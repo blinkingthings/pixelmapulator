@@ -11,34 +11,6 @@ let output_types = [];
 output_types.push(new Output_Type(1280,720));
 */
 
-//default counters
-let next_project = 0;
-let next_led_screen = 0;
-let next_output = 0;
-
-
-//trackers
-let active_project = 0;
-let active_led_screen = 0;
-let active_output = 0;
-let active_packed_output = 0;
-
-//containers
-let projects = [];
-
-//load default blinkingthings asterisk logo
-let logo = new Image();
-logo.src = "img/asterisklogo.png";
-logo.onload = function() {
-
-};
-
-//every other pixel pattern
-var every_other_pixel_checker = new Image();
-  every_other_pixel_checker.src = 'img/checker.png';
-
-let default_line_width = 2;
-
 //DOM inputs
 //######################################################################
 //project
@@ -2576,49 +2548,6 @@ function rainbow_faster() {
   canvas.classList.toggle("hue-rotate");
   let button = document.getElementById("rainbow-mode-button");
   button.classList.toggle("backgroundRed");
-}
-
-
-//color conversion functions
-function hexToRgb(hex) {
-  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : null;
-}
-
-function rgbToHex(r, g, b) {
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-}
-
-// Returns a single rgb color interpolation between given rgb color
-// based on the factor given; via https://codepen.io/njmcode/pen/axoyD?editors=0010
-function interpolateColor(color1, color2, factor) {
-  if (arguments.length < 3) {
-    factor = 0.5;
-  }
-  let result = color1.slice();
-  for (let i = 0; i < 3; i++) {
-    result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
-  }
-  return result;
-}
-
-//function to interpolate between two colors completely, returning an array (author: Zach Saucier)
-function interpolateColors(color1, color2, steps) {
-  let stepFactor = 1 / (steps - 1),
-    interpolatedColorArray = [];
-
-  color1 = color1.match(/\d+/g).map(Number);
-  color2 = color2.match(/\d+/g).map(Number);
-
-  for (let i = 0; i < steps; i++) {
-    interpolatedColorArray.push(interpolateColor(color1, color2, stepFactor * i));
-  }
-
-  return interpolatedColorArray;
 }
 
 //function to return number with thousands seperators Author : Elias Zamaria
