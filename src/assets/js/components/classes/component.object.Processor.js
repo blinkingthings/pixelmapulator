@@ -12,6 +12,8 @@
  * @param {number} processor.pixels_per_port_limit - The pixels per port limit of the processor.
  * @param {number} processor.port_count - The number of ports on the processor.
  * @param {number} processor.rack_size - The rack_size of the processor.
+ *
+ * @returns {object} Processor Object
  */
 
 class Processor {

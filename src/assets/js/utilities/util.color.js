@@ -1,18 +1,22 @@
 /**
  * Color Utility
  *
- * @description Color functions for converting RGB to Hex (and vice versa) and 
+ * @description Color functions for converting RGB to Hex (and vice versa) and
  *              interpolating colors.
- *
- * @param {object} processor - The processor object containing all of the processor info.
- * @param {number} output.height - The height of the output.
- * @param {number} output.width - The width of the output.
  */
 
 function colorOperation() {
-    /*
-     * Function to return a single RGB color between two given RGB colors
-     * based on the factor given.
+    /**
+     * @name interpolateColor
+     *
+     * @description Function to return a single RGB color between two given RGB
+     *              colors based on the factor given.
+     *
+     * @param {string} colorOne - The first color to be used for interpolation.
+     * @param {string} colorTwo - The second color for interpolation.
+     * @param {number} colorFactor - The factor to determine the interpolation.
+     *
+     * @returns {string} Resulting interpolation.
      *
      * Based on: https://codepen.io/njmcode/pen/axoyD?editors=0010
      */
@@ -26,9 +30,16 @@ function colorOperation() {
         return result;
     }
 
-    /*
-     * Function to interpolate between two colors completely, returning an
-     * array.
+    /**
+     * @name interpolateColors
+     *
+     * @description Function to interpolate between two colors completely.
+     *
+     * @param {string} colorOne - The first color to be used for interpolation.
+     * @param {string} colorTwo - The second color for interpolation.
+     * @param {number} colorFactor - The factor to determine the interpolation.
+     *
+     * @returns {array}
      *
      * Credit: Zach Saucier
      */
@@ -51,7 +62,16 @@ function colorOperation() {
         return colorArray;
     }
 
-    // Function to convert Hex to RGBa (with or without '#').
+    /**
+     * @name toRGB
+     *
+     * @description Converts Hex to RGBa format, with or without the '#'.
+     *
+     * @param {string} hex - The hex color code.
+     * @param {number} alpha - The alpha (opacity) value for the output.
+     *
+     * @returns {string} RGBa Value
+     */
     function toRGB(hex, alpha = 1) {
         // If there's a '#', remove it.
         let hexInput = hex.replace('#', '');
@@ -68,7 +88,17 @@ function colorOperation() {
         return `rgba(${r},${g},${b},${alpha})`;
     }
 
-    // Function to convert RGB to Hex.
+    /**
+     * @name toHex
+     *
+     * @description Converts RGB to a hex color code.
+     *
+     * @param {number} r - The 0-255 red color value.
+     * @param {number} g - The 0-255 green color value.
+     * @param {number} b - The 0-255 blue color value.
+     *
+     * @returns {string} Hex Value
+     */
     function toHex(r, g, b) {
         // Map each RGB value to the appropriate hex value.
         const hexValue = [r, g, b].map((x) => {

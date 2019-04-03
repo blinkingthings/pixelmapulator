@@ -15,6 +15,8 @@
  * @param {number} tile.weight - The weight of the tile.
  * @param {number} tile.power_stack_limit - The power limit of the tile.
  * @param {number} tile.hang_limit - The hang limit of the tile.
+ *
+ * @returns {object} Tile Object
  */
 
 class Tile {
