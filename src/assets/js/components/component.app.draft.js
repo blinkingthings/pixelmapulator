@@ -1,16 +1,4 @@
 // Development
-/*//build tile_types
-let tile_types = [];
-tile_types.push(new Tile_Type("Absen", "A3 Pro", 3.9, 128, 128, 500, 500, 12.7, 1, 1, 1));
-
-//build processor_types
-let processor_types = [];
-processor_types.push(new Processor_Type("Brompton", "Tessera SX40", 3840, 2160, 555555, 8, 4));
-
-let output_types = [];
-output_types.push(new Output_Type(1280,720));
-*/
-
 //DOM inputs
 //######################################################################
 //project
@@ -400,123 +388,6 @@ function Project(name) {
   };
   this.create_blank_master_canvas();
 
-  /*this.store_output = function(){
-    //set context and canvas to screen-view to draw screen
-    let canvas = document.getElementById("project_"+active_project+"_output_"+active_output);
-    let ctx = canvas.getContext('2d');
-
-
-    //set output-view to match output size from dropdowns
-    switch(this.output_type){
-      case 0:
-        canvas.width = 1280;
-        canvas.height = 720;
-        break;
-      case 1:
-        canvas.width = 1920;
-        canvas.height = 1080;
-        break;
-      case 2:
-        canvas.width = 3840;
-        canvas.height = 2160;
-        break;
-      case 3:
-        canvas.width = 4096;
-        canvas.height = 2160;
-        break;
-    }
-
-    //clear map-view
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    //building output canvas from screens
-    for (let i = 0; i < this.screen_count; i++){
-
-      //recall canvas that has been drawn already
-      let canvasFromStorage = document.getElementById("project_"+active_project+"_screen_"+i);
-      let screen_offset_x = this.led_screens[i].screen_offset_x;
-      let screen_offset_y = this.led_screens[i].screen_offset_y;
-
-      //draw stored canvas image to map-view
-      //alert(document.getElementById("processor_" + id).width);
-      ctx.drawImage(canvasFromStorage, screen_offset_x, screen_offset_y );
-
-      //label the map offsets
-      if ($screen_draw_offsets) {
-        ctx.font = "18px Helvetica";
-        ctx.fillStyle = "#FFFF00";
-        let offset_x_text = screen_offset_x + "px";
-        let offset_y_text = screen_offset_y + "px";
-        ctx.fillText(offset_x_text, screen_offset_x / 2, screen_offset_y);
-        ctx.fillText(offset_y_text, screen_offset_x, screen_offset_y / 2);
-
-        //draw dimension lines from map corner to edge of output
-        ctx.strokeStyle = "#FFFF00";
-        ctx.lineWidth = 1;
-        ctx.setLineDash([5, 2]);
-        ctx.beginPath();
-        ctx.moveTo(screen_offset_x, screen_offset_y);
-        ctx.lineTo(screen_offset_x, 0);
-        ctx.moveTo(screen_offset_x, screen_offset_y);
-        ctx.lineTo(0, screen_offset_y);
-        ctx.stroke();
-
-        //draw map label and offset above map in output
-        let screen_label = "Screen " + i + " (" + offset_x_text + ", " + offset_y_text + ")";
-        ctx.fillText(screen_label, screen_offset_x + 5, (screen_offset_y - 5));
-      }
-      //for each screen
-    }
-    //this.outputs.push(new Output(w, h));
-
-  };*/
-
-
-  /*this.recall_output = function (){
-    //recall saved image of screen to output-view
-
-      //set context and canvas to screen-view to draw screen
-      let canvas = document.getElementById("output-view");
-      let ctx = canvas.getContext('2d');
-
-      let canvasFromStorage = document.getElementById("project_"+active_project+"_output_"+active_output);
-
-      //set output-view to match output size from dropdowns
-      switch(this.output_type){
-        case 0:
-          canvas.width = 1280;
-          canvas.height = 720;
-          break;
-        case 1:
-          canvas.width = 1920;
-          canvas.height = 1080;
-          break;
-        case 2:
-          canvas.width = 3840;
-          canvas.height = 2160;
-          break;
-        case 3:
-          canvas.width = 4096;
-          canvas.height = 2160;
-          break;
-      }
-
-
-
-      //clear map-view
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#000000";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      //draw stored output canvas image to output-view
-      ctx.drawImage(canvasFromStorage, 0, 0);
-
-  };*/
-  //this.recall_output();
-
-
   this.screen_view = function() {
     //show or hide appropriate view
     this.output.classList.add("hidden");
@@ -690,26 +561,6 @@ function Output(width, height) {
     output_card_body.append(thumbnail);
     output_card_body.append(selector);
     ///$$$$$$$$$$
-
-
-
-    //create new screen selector button for each screen
-    /*let selector = document.createElement("button");
-    selector.setAttribute("id", "output-selector" + this.id);
-    selector.setAttribute("class", "output-selector");
-    selector.setAttribute("onclick", "projects[active_project].switch_output(" + this.id + ");");
-    selector.innerHTML = "output" + this.id;
-
-    ////
-    let label_span = document.createElement('button');
-    let label = document.createTextNode("output "+active_output);
-    label_span.appendChild(label);
-    label_span.setAttribute("id", "output-thumbnail" + this.id+"-label");
-    //thumbnails.appendChild(label_span);
-    thumbnails.insertBefore(selector,thumbnails.lastChild);*/
-
-
-
   };
 
 
@@ -1850,43 +1701,7 @@ function Processor(id,screen_id,tile_width,tile_height, offset_x, offset_y,tiles
     this.tile_smaller_side = Math.min(this.tile_width, this.tile_height);
     this.processor_cols_limit = Math.floor(processor_width_limit / this.tile_width);
     this.processor_rows_limit = Math.floor(processor_height_limit / this.tile_height);
-
-
-    //auto offset
-    /*if (this.auto_offset) {
-      //map0 offsets default to 0
-      if (this.id == 0) {
-        this.offset_x = 0;
-        this.offset_y = 0;
-      } else {
-        //update offsets as maps are added
-        this.offset_x = maps[this.id - 1].width + maps[this.id - 1].offset_x;
-
-        //if offset is out of output bounds
-        let next_x_offset = this.offset_x + this.width;
-        console.log(this.width);
-        if (next_x_offset >= document.getElementById('output-view').width) {
-          //move it to left side of screen and down a map height
-          //alert("width exceeded");
-          this.offset_x = 0;
-          map_row += 1;
-        }
-        this.offset_y = this.height * map_row;
-        document.getElementById('offset-x').value = this.offset_x;
-        document.getElementById('offset-y').value = this.offset_y;
-      }
-    } else {
-      //otherwise
-      //commented out below to get add_screen offsets working. might ditch auto_offset entirely now.
-      this.offset_x = +document.getElementById('offset-x').value;
-      this.offset_y = +document.getElementById('offset-y').value;
-      //alert("offsetx : "+this.offset_x+" offset y : "+this.offset_y);
-    }*/
-
-
-
-
-
+    
     //this.tile_limit = +document.getElementById('tile-limit').value;
     //this.pixel_limit = this.tile_limit * this.pixels_per_tile;
     //flag - try changing auto clean here

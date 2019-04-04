@@ -1,6 +1,8 @@
 /**
- * Tile Object
+ * Tile Type Object
  * @class
+ *
+ * @name tileType
  *
  * @description Creates a new tile object.
  *
@@ -13,13 +15,14 @@
  * @param {number} tile.physical_height - The physical height of the tile.
  * @param {number} tile.physical_width - The physical width of the tile.
  * @param {number} tile.weight - The weight of the tile.
- * @param {number} tile.power_stack_limit - The power limit of the tile.
+ * @param {number} tile.power_draw - The power draw of the tile.
+ * @param {number} tile.stack_limit - The stack limit of the tile.
  * @param {number} tile.hang_limit - The hang limit of the tile.
  *
  * @returns {object} Tile Object
  */
 
-class Tile {
+class tileType {
     constructor(tile) {
         this.brand = tile.brand;
         this.model = tile.model;
@@ -29,9 +32,10 @@ class Tile {
         this.physical_height = tile.physical_height;
         this.physical_width = tile.physical_width;
         this.weight = tile.weight;
-        this.power_stack_limit = tile.power_stack_limit;
+        this.power_draw = tile.power_draw;
+        this.stack_limit = tile.stack_limit;
         this.hang_limit = tile.hang_limit;
     }
 }
 
-export default Tile;
+export default tileType;

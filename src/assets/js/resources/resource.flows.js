@@ -45,8 +45,8 @@ const flows = {
      *              travel direction and the second is the max number of steps
      *              before turning.
      */
-    maps: {
-        1: {
+    maps: [
+        {
             // Top left start, right, down, left , down.
             startX: 0,
             startY: 0,
@@ -57,7 +57,7 @@ const flows = {
                 [1, 1],
             ],
         },
-        2: {
+        {
             // Top left start, down, right up, right.
             startX: 0,
             startY: 0,
@@ -68,7 +68,7 @@ const flows = {
                 [0, 1],
             ],
         },
-        3: {
+        {
             // Bottom left start, right, up, left, up.
             startX: 0,
             startY: 1,
@@ -79,7 +79,7 @@ const flows = {
                 [3, 1],
             ],
         },
-        4: {
+        {
             // Bottom left start, up, right, down, right.
             startX: 0,
             startY: 1,
@@ -90,7 +90,7 @@ const flows = {
                 [0, 1],
             ],
         },
-        5: {
+        {
             // Top left start, down, diagonal up to the right, repeat.
             startX: 0,
             startY: 0,
@@ -99,7 +99,7 @@ const flows = {
                 [6, 1],
             ],
         },
-        6: {
+        {
             // Bottom left start, up, diagonal down to the right, repeat.
             startX: 0,
             startY: 1,
@@ -108,7 +108,7 @@ const flows = {
                 [7, 1],
             ],
         },
-        7: {
+        {
             // Top left start, right, diagonal down to the left, repeat.
             startX: 0,
             startY: 0,
@@ -117,7 +117,7 @@ const flows = {
                 [9, 1],
             ],
         },
-        8: {
+        {
             // Bottom left start, right, diagonal up to the left, repeat.
             startX: 0,
             startY: 1,
@@ -126,7 +126,7 @@ const flows = {
                 [8, 1],
             ],
         },
-    },
+    ],
 };
 
 export default flows;
